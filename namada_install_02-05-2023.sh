@@ -25,23 +25,12 @@ function main_tools {
   sudo apt install nodejs=16.* yarn  -y
   sleep 3
   
-  sudo rm -rf /usr/local/go
-  curl https://dl.google.com/go/go1.20.3.linux-amd64.tar.gz | sudo tar -C /usr/local -zxvf -
 
-  cat <<'EOF' >>$HOME/.profile
-  export GOROOT=/usr/local/go
-  export GO111MODULE=on
-  export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-  
-  EOF
-  
- 
- 
-  source $HOME/.profile
-  sleep 3
 }
 
-
+function go {
+  bash <(curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/go.sh)
+}
 
 function vars {
   echo "export NAMADA_TAG=v0.15.1" >> ~/.bash_profile
@@ -116,6 +105,7 @@ line
 echo "Встановлення додаткового хламу...."
 line
 main_tools
+go
 line
 echo "Встановлення і налаштування ноди namada"
 vars
