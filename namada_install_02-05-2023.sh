@@ -1,5 +1,19 @@
 #function
 
+center()
+{ 
+IFS=""
+while read L
+do
+printf "%b\n" $(printf "%.$((($(tput cols)-${#L})/2))d" 0 | sed 's/0/ /g')$L
+done
+}
+
+function colors {
+  GREEN="\e[32m"
+  NORM="\e[0m"
+}
+
 function logo {
 bash <(curl -s https://raw.githubusercontent.com/Pandionidae/Additional_files/main/logo.sh)
 }
@@ -102,12 +116,13 @@ if [ ! $NAMADA_NAME ]; then
 fi
 sleep 1
 line
-echo "Встановлення додаткового хламу...."
+echo "${GREEN}Встановлення додаткового хламу....${NORM}" | center
 line
 main_tools
 go
 line
-echo "Встановлення і налаштування ноди namada"
+echo "${GREEN}Встановлення і налаштування ноди namada${NORM}" | center
+line
 vars
 
 
@@ -117,4 +132,4 @@ line
 
 autoload_namada
 line
-echo "Ноду встановили і запустили, потрібно перевірити логи чи все добре працює! І виконати наступні кроки!"
+echo "${GREEN}Ноду встановили і запустили, потрібно перевірити логи чи все добре працює! І виконати наступні кроки!${NORM}" | center
