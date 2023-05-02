@@ -33,6 +33,7 @@ function main_tools {
   export GO111MODULE=on
   export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
   EOF
+  
 
   source $HOME/.profile
   sleep 3
