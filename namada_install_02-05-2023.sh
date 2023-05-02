@@ -108,7 +108,7 @@ EOF
 
 
 
-colors
+
 line
 logo
 line
