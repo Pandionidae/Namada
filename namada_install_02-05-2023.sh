@@ -64,8 +64,9 @@ cd namada
 git checkout $NAMADA_TAG
 make build-release
 sudo mv target/release/namada /usr/local/bin/
+echo "${GREEN}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1${NORM}" | center
 sudo mv target/release/namada[c,n,w] /usr/local/bin/
-
+echo "${GREEN}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!${NORM}" | center
 cd $HOME && sudo rm -rf tendermint 
 git clone https://github.com/heliaxdev/tendermint 
 cd tendermint 
