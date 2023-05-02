@@ -112,7 +112,7 @@ line | center
 logo
 line | center
 if [ ! $NAMADA_NAME ]; then
-	read -p "Введите ваше имя ноды(придумайте, без спецсимволов - только буквы и цифры): " NAMADA_NAME
+	read -p "Введіть назву ноди" NAMADA_NAME
 fi
 sleep 1
 line | center
