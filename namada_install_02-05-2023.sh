@@ -112,7 +112,7 @@ line | center
 logo
 line | center
 if [ ! $NAMADA_NAME ]; then
-	read -p "Введіть назву ноди: " | center NAMADA_NAME 
+	read -p "Введіть назву ноди: " NAMADA_NAME 
 fi
 sleep 1
 line | center
