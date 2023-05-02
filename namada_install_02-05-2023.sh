@@ -60,8 +60,10 @@ function vars {
 function install_namada {
 cd $HOME && sudo rm -rf $HOME/namada 
 git clone https://github.com/anoma/namada 
+line
 cd namada 
 git checkout $NAMADA_TAG
+line
 make build-release
 sudo mv target/release/namada /usr/local/bin/
 echo "${GREEN}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1${NORM}" | center
@@ -126,7 +128,7 @@ echo "${GREEN}Встановлення і налаштування ноди nama
 line
 vars
 
-
+line
 install_namada
 line
 
