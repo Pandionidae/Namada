@@ -19,7 +19,7 @@ bash <(curl -s https://raw.githubusercontent.com/Pandionidae/Additional_files/ma
 }
 
 function line {
-  echo "--------------------------------------------------------------------------------"
+  echo "${GREEN}--------------------------------------------------------------------------------${NORM}"
 }
 
 
