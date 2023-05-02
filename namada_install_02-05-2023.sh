@@ -39,11 +39,6 @@ function main_tools {
 }
 
 
-function NAMADA_NAME {
- if [ ! $NAMADA_NAME ]; then
-	read -p "Введите ваше имя ноды(придумайте, без спецсимволов - только буквы и цифры): " NAMADA_NAME
-fi
-}
 
 function vars {
   echo "export NAMADA_TAG=v0.15.1" >> ~/.bash_profile
@@ -110,8 +105,10 @@ EOF
 line
 logo
 line
-NAMADA_NAME=""
-NAMADA_NAME
+if [ ! $NAMADA_NAME ]; then
+	read -p "Введите ваше имя ноды(придумайте, без спецсимволов - только буквы и цифры): " NAMADA_NAME
+fi
+sleep 1
 line
 echo "Встановлення додаткового хламу...."
 line
