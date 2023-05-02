@@ -19,7 +19,7 @@ bash <(curl -s https://raw.githubusercontent.com/Pandionidae/Additional_files/ma
 }
 
 function line {
-  echo "${GREEN}--------------------------------------------------------------------------------${NORM}"
+  echo "--------------------------------------------------------------------------------"
 }
 
 
@@ -60,15 +60,12 @@ function vars {
 function install_namada {
 cd $HOME && sudo rm -rf $HOME/namada 
 git clone https://github.com/anoma/namada 
-line
 cd namada 
 git checkout $NAMADA_TAG
-line
 make build-release
 sudo mv target/release/namada /usr/local/bin/
-echo "${GREEN}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1${NORM}" | center
 sudo mv target/release/namada[c,n,w] /usr/local/bin/
-echo "${GREEN}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!${NORM}" | center
+
 cd $HOME && sudo rm -rf tendermint 
 git clone https://github.com/heliaxdev/tendermint 
 cd tendermint 
@@ -111,28 +108,28 @@ EOF
 
 
 
-line
+line | center
 logo
-line
+line | center
 if [ ! $NAMADA_NAME ]; then
 	read -p "Введите ваше имя ноды(придумайте, без спецсимволов - только буквы и цифры): " NAMADA_NAME
 fi
 sleep 1
-line
+line | center
 echo "${GREEN}Встановлення додаткового хламу....${NORM}" | center
-line
+line | center
 main_tools
 go
-line
+line | center
 echo "${GREEN}Встановлення і налаштування ноди namada${NORM}" | center
-line
+line | center
 vars
 
-line
+line | center
 install_namada
-line
+line | center
 
 
 autoload_namada
-line
+line | center
 echo "${GREEN}Ноду встановили і запустили, потрібно перевірити логи чи все добре працює! І виконати наступні кроки!${NORM}" | center
