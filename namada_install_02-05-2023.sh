@@ -29,7 +29,7 @@ function main_tools {
 }
 
 function go {
-  bash <(curl -s https://raw.githubusercontent.com/DOUBLE-TOP/tools/main/go.sh)
+  bash <(curl -s https://raw.githubusercontent.com/Pandionidae/Additional_files/main/go.sh)
 }
 
 function vars {
