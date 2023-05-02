@@ -39,11 +39,11 @@ function main_tools {
 }
 
 
-function Namada_name {
-  if [ ! ${Namada_name} ]; then
-  echo "Придумайте і введіть ім'я ноди"
+function NAMADA_NAME {
+  if [ ! ${NAMADA_NAME} ]; then
+  echo "Введите свое имя ноды(придумайте)"
   line
-  read Namada_name
+  read NAMADA_NAME
   fi
 }
 
@@ -51,8 +51,8 @@ function vars {
   echo "export NAMADA_TAG=v0.15.1" >> ~/.bash_profile
   echo "export TM_HASH=v0.1.4-abciplus" >> ~/.bash_profile
   echo "export CHAIN_ID=public-testnet-7.0.3c5a38dc983" >> ~/.bash_profile
-  echo "export VALIDATOR_ALIAS=$Namada_name" >> ~/.bash_profile
-  echo "export WALLET=$Namada_name" >> ~/.bash_profile
+  echo "export VALIDATOR_ALIAS=$NAMADA_NAME" >> ~/.bash_profile
+  echo "export WALLET=$NAMADA_NAME" >> ~/.bash_profile
   source ~/.bash_profile
 }
 
@@ -112,7 +112,7 @@ EOF
 line
 logo
 line
-Namada_name
+NAMADA_NAME
 line
 echo "Встановлення додаткового хламу...."
 line
