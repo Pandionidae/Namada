@@ -112,6 +112,7 @@ EOF
 line
 logo
 line
+NAMADA_NAME="";
 NAMADA_NAME
 line
 echo "Встановлення додаткового хламу...."
