@@ -1,7 +1,7 @@
 #function
 
 function logo {
-bash <(curl -s https://raw.githubusercontent.com/Pandionidae/Additional_files/main/logo)
+bash <(curl -s https://raw.githubusercontent.com/Pandionidae/Additional_files/main/logo.sh)
 }
 
 function line {
