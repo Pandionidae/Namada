@@ -40,11 +40,9 @@ function main_tools {
 
 
 function NAMADA_NAME {
-  if [ ! ${NAMADA_NAME} ]; then
-  echo "Введите свое имя ноды(придумайте)"
-  line
-  read NAMADA_NAME
-  fi
+ if [ ! $NAMADA_NAME ]; then
+	read -p "Введите ваше имя ноды(придумайте, без спецсимволов - только буквы и цифры): " NAMADA_NAME
+fi
 }
 
 function vars {
