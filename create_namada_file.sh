@@ -49,7 +49,6 @@ function go {
 function vars {
   echo "export NAMADA_TAG=v0.15.1" >> ~/.bash_profile
   echo "export TM_HASH=v0.1.4-abciplus" >> ~/.bash_profile
-  echo "export CHAIN_ID=public-testnet-7.0.3c5a38dc983" >> ~/.bash_profile
   source ~/.bash_profile
 }
 
@@ -71,7 +70,6 @@ git checkout $TM_HASH
 make build
 sudo mv build/tendermint /usr/local/bin/
 cd $HOME
-namada client utils join-network --chain-id $CHAIN_ID
 sleep 3
 
 }
