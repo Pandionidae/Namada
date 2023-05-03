@@ -81,13 +81,13 @@ sudo mv build/tendermint /usr/local/bin/
 
 cd $HOME
 namada client utils join-network --chain-id $CHAIN_ID
-#mkdir -p $HOME/.namada/${CHAIN_ID}/tendermint/config/
 wget -O $HOME/.namada/${CHAIN_ID}/tendermint/config/addrbook.json https://github.com/McDaan/general/raw/main/namada/addrbook.json
 sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g' /root/.namada/public-testnet*/config.toml
 
 sudo chmod +x /usr/local/bin/tendermint
 rm -rf $HOME/public-testnet-7.0.3c5a38dc983.tar.gz
 rm -rf $HOME/tendermint
+rm -rf $HOME/.masp-params
 }
 
 
