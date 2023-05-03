@@ -124,8 +124,6 @@ line | center
 echo "${GREEN}Встановлення і налаштування ноди namada${NORM}" | center
 line | center
 vars
-
-line | center
 install_namada
 line | center
 
