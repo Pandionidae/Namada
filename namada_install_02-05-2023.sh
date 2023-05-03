@@ -75,6 +75,8 @@ sudo mv build/tendermint /usr/local/bin/
 cd $HOME
 namada client utils join-network --chain-id $CHAIN_ID
 sleep 3
+
+sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g' /root/.namada/public-testnet*/config.toml
 }
 
 
