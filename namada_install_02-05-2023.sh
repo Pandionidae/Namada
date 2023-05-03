@@ -138,8 +138,8 @@ echo "${GREEN}Встановлення і налаштування ноди nama
 line | center
 vars
 install_namada
-line | center
-autoload_namada | center
+
+autoload_namada
 line | center
 echo "${GREEN}Ноду встановили і запустили, потрібно перевірити логи чи все добре працює! І виконати наступні кроки!${NORM}" | center
 line | center
