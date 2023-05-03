@@ -81,9 +81,7 @@ sudo mv build/tendermint /usr/local/bin/
 
 cd $HOME
 namada client utils join-network --chain-id $CHAIN_ID
-wget https://github.com/heliaxdev/anoma-network-config/releases/download/${CHAIN_ID}/${CHAIN_ID}.tar.gz
-tar xvzf "$HOME/$CHAIN_ID.tar.gz"
-mkdir -p $HOME/.namada/${CHAIN_ID}/tendermint/config/
+#mkdir -p $HOME/.namada/${CHAIN_ID}/tendermint/config/
 wget -O $HOME/.namada/${CHAIN_ID}/tendermint/config/addrbook.json https://github.com/McDaan/general/raw/main/namada/addrbook.json
 sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g' /root/.namada/public-testnet*/config.toml
 
