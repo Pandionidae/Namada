@@ -78,7 +78,7 @@ cd tendermint
 git checkout $TM_HASH
 make build
 sudo mv build/tendermint /usr/local/bin/
-sudo chmod +x /usr/local/bin/{tendermint}
+
 cd $HOME
 namada client utils join-network --chain-id $CHAIN_ID
 wget https://github.com/heliaxdev/anoma-network-config/releases/download/${CHAIN_ID}/${CHAIN_ID}.tar.gz
@@ -86,6 +86,9 @@ tar xvzf "$HOME/$CHAIN_ID.tar.gz"
 mkdir -p $HOME/.namada/${CHAIN_ID}/tendermint/config/
 wget -O $HOME/.namada/${CHAIN_ID}/tendermint/config/addrbook.json https://github.com/McDaan/general/raw/main/namada/addrbook.json
 sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g' /root/.namada/public-testnet*/config.toml
+
+sudo chmod +x /usr/local/bin/tendermint
+rm -rf $HOME/public-testnet-7.0.3c5a38dc983.tar.gz
 }
 
 
@@ -137,8 +140,7 @@ line | center
 vars
 install_namada
 line | center
-
-
-autoload_namada
+autoload_namada | center
 line | center
 echo "${GREEN}Ноду встановили і запустили, потрібно перевірити логи чи все добре працює! І виконати наступні кроки!${NORM}" | center
+line | center
