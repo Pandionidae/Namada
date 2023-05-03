@@ -89,6 +89,7 @@ sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\
 
 sudo chmod +x /usr/local/bin/tendermint
 rm -rf $HOME/public-testnet-7.0.3c5a38dc983.tar.gz
+rm -rf $HOME/tendermint
 }
 
 
