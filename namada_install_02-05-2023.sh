@@ -66,7 +66,7 @@ tar -xvf namada-v0.15.1-Linux-x86_64.tar.gz
 sudo mv $HOME/namada-v0.15.1-Linux-x86_64/namada /usr/local/bin/
 sudo mv $HOME/namada-v0.15.1-Linux-x86_64/namada[c,n,w] /usr/local/bin/
 
-sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
+sudo chmod +x /usr/local/bin/{namada,namadac,namadan,namadaw}
 
 rm -rf $HOME/namada-v0.15.1-Linux-x86_64
 rm -rf $HOME/namada-v0.15.1-Linux-x86_64.tar.gz
