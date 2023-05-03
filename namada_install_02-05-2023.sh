@@ -58,13 +58,19 @@ function vars {
 
 
 function install_namada {
-cd $HOME && sudo rm -rf $HOME/namada 
-git clone https://github.com/anoma/namada 
-cd namada 
-git checkout $NAMADA_TAG
-make build-release
-sudo mv target/release/namada /usr/local/bin/
-sudo mv target/release/namada[c,n,w] /usr/local/bin/
+sudo wget -O $HOME/namada-v0.15.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.15.1/namada-v0.15.1-Linux-x86_64.tar.gz
+cd $HOME/
+tar -xvf namada-v0.15.1-Linux-x86_64.tar.gz 
+
+
+sudo mv $HOME/namada-v0.15.1-Linux-x86_64/namada /usr/local/bin/
+sudo mv $HOME/namada-v0.15.1-Linux-x86_64/namada[c,n,w] /usr/local/bin/
+
+sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
+
+rm -rf $HOME/namada-v0.15.1-Linux-x86_64
+rm -rf $HOME/namada-v0.15.1-Linux-x86_64.tar.gz
+
 
 cd $HOME && sudo rm -rf tendermint 
 git clone https://github.com/heliaxdev/tendermint 
@@ -72,10 +78,13 @@ cd tendermint
 git checkout $TM_HASH
 make build
 sudo mv build/tendermint /usr/local/bin/
+sudo chmod +x /usr/local/bin/{tendermint}
 cd $HOME
 namada client utils join-network --chain-id $CHAIN_ID
-sleep 3
-
+wget https://github.com/heliaxdev/anoma-network-config/releases/download/${CHAIN_ID}/${CHAIN_ID}.tar.gz
+tar xvzf "$HOME/$CHAIN_ID.tar.gz"
+mkdir -p $HOME/.namada/${CHAIN_ID}/tendermint/config/
+wget -O $HOME/.namada/${CHAIN_ID}/tendermint/config/addrbook.json https://github.com/McDaan/general/raw/main/namada/addrbook.json
 sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g' /root/.namada/public-testnet*/config.toml
 }
 
