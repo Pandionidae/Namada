@@ -120,7 +120,7 @@ EOF
 
 
 
-
+sudo systemctl stop namada
 line | center
 logo
 line | center
