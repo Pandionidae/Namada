@@ -117,7 +117,6 @@ function wget_bin {
   make build
   sudo mv build/tendermint /usr/local/bin/
   sudo chmod +x /usr/local/bin/tendermint
-  rm -rf $HOME/tendermint
 }
 
 function network {
