@@ -93,7 +93,6 @@ function cometbft {
   cd $HOME
   git clone https://github.com/cometbft/cometbft.git
   cd cometbft
-  git checkout $CBFT
   make build
   cp $HOME/cometbft/build/cometbft /usr/local/bin/cometbft
 }
@@ -110,16 +109,20 @@ function wget_bin {
   rm -rf $HOME/namada-v0.18.1-Linux-x86_64
   rm -rf $HOME/namada-v0.18.1-Linux-x86_64.tar.gz
   
-  sudo wget -O /usr/local/bin/tendermint https://doubletop-bin.ams3.digitaloceanspaces.com/namada/tendermint
-  sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
+  cd $HOME && sudo rm -rf tendermint 
+  git clone https://github.com/heliaxdev/tendermint
+  cd tendermint
+  make build
+  sudo mv build/tendermint /usr/local/bin/
 
+  sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
 }
 
 function network {
   cd $HOME
   namada client utils join-network --chain-id $CHAIN_ID
   mkdir -p $HOME/.local/share/namada/${CHAIN_ID}/tendermint/config/
-  get -O $HOME/.local/share/namada/${CHAIN_ID}/cometbft/config/addrbook.json https://raw.githubusercontent.com/McDaan/general/main/namada/addrbook.json
+  #wget -O $HOME/.local/share/namada/${CHAIN_ID}/cometbft/config/addrbook.json https://raw.githubusercontent.com/McDaan/general/main/namada/addrbook.json
   sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g; s/127\.0\.0\.1:26658/127\.0\.0\.1:51658/g' $HOME/.local/share/namada/public-testnet*/config.toml
 }
 
