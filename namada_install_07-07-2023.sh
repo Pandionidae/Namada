@@ -98,7 +98,7 @@ function cometbft {
 }
 
 function wget_bin {
- udo wget -O $HOME/namada-v0.18.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.18.1/namada-v0.18.1-Linux-x86_64.tar.gz
+  sudo wget -O $HOME/namada-v0.18.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.18.1/namada-v0.18.1-Linux-x86_64.tar.gz
   cd $HOME/
   tar -xvf namada-v0.18.1-Linux-x86_64.tar.gz
   
