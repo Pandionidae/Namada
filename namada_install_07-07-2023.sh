@@ -120,6 +120,7 @@ function wget_bin {
 
 function network {
   cd $HOME
+  CHAIN_ID=public-testnet-10.3718993c3648
   namada client utils join-network --chain-id $CHAIN_ID
   mkdir -p $HOME/.local/share/namada/${CHAIN_ID}/tendermint/config/
   #wget -O $HOME/.local/share/namada/${CHAIN_ID}/cometbft/config/addrbook.json https://raw.githubusercontent.com/McDaan/general/main/namada/addrbook.json
