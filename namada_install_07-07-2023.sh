@@ -100,10 +100,15 @@ function cometbft {
 function wget_bin {
 
 
-  sudo wget -O /usr/local/bin/namada https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namada
-  sudo wget -O /usr/local/bin/namadac https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadac
-  sudo wget -O /usr/local/bin/namadan https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadan
-  sudo wget -O /usr/local/bin/namadaw https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadaw
+  sudo wget -O $HOME/namada-v0.18.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.18.1/namada-v0.18.1-Linux-x86_64.tar.gz
+  cd $HOME/
+  tar -xvf namada-v0.18.1-Linux-x86_64.tar.gz
+  
+  sudo mv $HOME/namada-v0.18.1-Linux-x86_64/namada /usr/local/bin/
+  sudo mv $HOME/namada-v0.18.1-Linux-x86_64/namada[c,n,w] /usr/local/bin/
+
+  rm -rf $HOME/namada-v0.18.1-Linux-x86_64
+  rm -rf $HOME/namada-v0.18.1-Linux-x86_64.tar.gz
   sudo wget -O /usr/local/bin/tendermint https://doubletop-bin.ams3.digitaloceanspaces.com/namada/tendermint
   sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
 }
