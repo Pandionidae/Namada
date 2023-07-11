@@ -111,11 +111,7 @@ function wget_bin {
   rm -rf $HOME/$NAMADA_N
   rm -rf $HOME/$NAMADA_V
   
-  cd $HOME && sudo rm -rf tendermint 
-  git clone https://github.com/heliaxdev/tendermint
-  cd tendermint
-  make build
-  sudo mv build/tendermint /usr/local/bin/
+  sudo wget -O /usr/local/bin/tendermint https://doubletop-bin.ams3.digitaloceanspaces.com/namada/tendermint
   
   sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
 }
