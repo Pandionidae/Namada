@@ -161,6 +161,7 @@ line | center
 network
 systemd_namada
 line | center
+CHAIN_ID=public-testnet-10.3718993c3648
 wget -O $HOME/.local/share/namada/${CHAIN_ID}/cometbft/config/addrbook.json https://raw.githubusercontent.com/McDaan/general/main/namada/addrbook.json
 sudo systemctl restart namada
 echo "${GREEN}Ноду встановили і запустили, потрібно перевірити логи чи все добре працює! І виконати наступні кроки!${NORM}" | center
