@@ -101,7 +101,7 @@ function wget_bin {
 
   NAMADA_V=namada-v0.19.0-Linux-x86_64.tar.gz
   NAMADA_N=namada-v0.19.0-Linux-x86_64
-  sudo wget -O $HOME/namada-v0.18.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.19.0/$NAMADA_V
+  sudo wget -O $HOME/$NAMADA_V https://github.com/anoma/namada/releases/download/v0.19.0/$NAMADA_V
   cd $HOME/
   tar -xvf $NAMADA_V
   
