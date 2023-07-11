@@ -75,7 +75,6 @@ rm -rf $HOME/namada-v0.15.1-Linux-x86_64.tar.gz
 cd $HOME && sudo rm -rf tendermint 
 git clone https://github.com/heliaxdev/tendermint 
 cd tendermint 
-git checkout $TM_HASH
 make build
 sudo mv build/tendermint /usr/local/bin/
 sudo chmod +x /usr/local/bin/tendermint
