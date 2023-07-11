@@ -99,18 +99,13 @@ function cometbft {
 
 function wget_bin {
 
-sudo wget -O /usr/local/bin/namada https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namada
+ sudo wget -O /usr/local/bin/namada https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namada
   sudo wget -O /usr/local/bin/namadac https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadac
   sudo wget -O /usr/local/bin/namadan https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadan
   sudo wget -O /usr/local/bin/namadaw https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadaw
-  
-   cd $HOME && sudo rm -rf tendermint 
-  git clone https://github.com/heliaxdev/tendermint
-  cd tendermint
-  make build
-  sudo mv build/tendermint /usr/local/bin/
-  
+  sudo wget -O /usr/local/bin/tendermint https://doubletop-bin.ams3.digitaloceanspaces.com/namada/tendermint
   sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
+
 }
 
 function network {
