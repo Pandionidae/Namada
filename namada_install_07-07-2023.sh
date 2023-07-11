@@ -99,17 +99,24 @@ function cometbft {
 
 function wget_bin {
 
-
-  sudo wget -O $HOME/namada-v0.18.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.18.1/namada-v0.18.1-Linux-x86_64.tar.gz
+  NAMADA_V=namada-v0.19.0-Linux-x86_64.tar.gz
+  NAMADA_N=namada-v0.19.0-Linux-x86_64
+  sudo wget -O $HOME/namada-v0.18.1-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.19.0/$NAMADA_V
   cd $HOME/
-  tar -xvf namada-v0.18.1-Linux-x86_64.tar.gz
+  tar -xvf $NAMADA_V
   
-  sudo mv $HOME/namada-v0.18.1-Linux-x86_64/namada /usr/local/bin/
-  sudo mv $HOME/namada-v0.18.1-Linux-x86_64/namada[c,n,w] /usr/local/bin/
+  sudo mv $HOME/$NAMADA_N/namada /usr/local/bin/
+  sudo mv $HOME/$NAMADA_N/namada[c,n,w] /usr/local/bin/
 
-  rm -rf $HOME/namada-v0.18.1-Linux-x86_64
-  rm -rf $HOME/namada-v0.18.1-Linux-x86_64.tar.gz
-  sudo wget -O /usr/local/bin/tendermint https://doubletop-bin.ams3.digitaloceanspaces.com/namada/tendermint
+  rm -rf $HOME/$NAMADA_N
+  rm -rf $HOME/$NAMADA_V
+  
+  cd $HOME && sudo rm -rf tendermint 
+  git clone https://github.com/heliaxdev/tendermint
+  cd tendermint
+  make build
+  sudo mv build/tendermint /usr/local/bin/
+  
   sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
 }
 
