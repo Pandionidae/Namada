@@ -109,7 +109,7 @@ function wget_bin {
   rm -rf $HOME/namada-v0.19.0-Linux-x86_64
   rm -rf $HOME/namada-v0.19.0-Linux-x86_64.tar.gz
 
-  sudo chmod +x /usr/local/bin/{cometbft,namada,namadac,namadan,namadaw}
+  sudo chmod +x /usr/local/bin/{namada,namadac,namadan,namadaw}
 
   cd $HOME && sudo rm -rf tendermint 
   git clone https://github.com/tendermint/tendermint.git
