@@ -111,7 +111,13 @@ function wget_bin {
 
   sudo chmod +x /usr/local/bin/{cometbft,namada,namadac,namadan,namadaw}
 
-}
+  cd $HOME && sudo rm -rf tendermint 
+  git clone https://github.com/tendermint/tendermint.git
+  cd tendermint
+  make build
+  sudo mv build/tendermint /usr/local/bin/
+  sudo chmod +x /usr/local/bin/tendermint
+  }
 
 function network {
   cd $HOME
