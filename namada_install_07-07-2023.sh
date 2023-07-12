@@ -99,12 +99,17 @@ function cometbft {
 
 function wget_bin {
 
- sudo wget -O /usr/local/bin/namada https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namada
-  sudo wget -O /usr/local/bin/namadac https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadac
-  sudo wget -O /usr/local/bin/namadan https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadan
-  sudo wget -O /usr/local/bin/namadaw https://doubletop-bin.ams3.digitaloceanspaces.com/namada/$NAMADA_TAG/namadaw
-  sudo wget -O /usr/local/bin/tendermint https://doubletop-bin.ams3.digitaloceanspaces.com/namada/tendermint
-  sudo chmod +x /usr/local/bin/{tendermint,namada,namadac,namadan,namadaw}
+  sudo wget -O $HOME/namada.tar.gz https://github.com/anoma/namada/releases/download/v0.19.0/namada-v0.19.0-Linux-x86_64.tar.gz
+  cd $HOME/
+  tar -xvf namada.tar.gz
+  
+  sudo mv $HOME/namada/namada /usr/local/bin/
+  sudo mv $HOME/namada/namada[c,n,w] /usr/local/bin/
+
+  rm -rf $HOME/namada
+  rm -rf $HOME/namada.tar.gz
+
+  sudo chmod +x /usr/local/bin/{cometbft,namada,namadac,namadan,namadaw}
 
 }
 
@@ -112,6 +117,8 @@ function network {
   cd $HOME
   namada client utils join-network --chain-id $CHAIN_ID
   mkdir -p $HOME/.local/share/namada/${CHAIN_ID}/tendermint/config/
+    sudo sed -i 's/0\.0\.0\.0:26656/0\.0\.0\.0:51656/g; s/127\.0\.0\.1:26657/127\.0\.0\.1:51657/g; s/127\.0\.0\.1:26658/127\.0\.0\.1:51658/g' $HOME/.local/share/namada/public-testnet*/config.toml
+
 }
 
 function systemd_namada {
