@@ -99,15 +99,15 @@ function cometbft {
 
 function wget_bin {
 
-  sudo wget -O $HOME/namada.tar.gz https://github.com/anoma/namada/releases/download/v0.19.0/namada-v0.19.0-Linux-x86_64.tar.gz
+  sudo wget -O $HOME/namada-v0.19.0-Linux-x86_64.tar.gz https://github.com/anoma/namada/releases/download/v0.19.0/namada-v0.19.0-Linux-x86_64.tar.gz
   cd $HOME/
-  tar -xvf namada.tar.gz
+  tar -xvf namada-v0.19.0-Linux-x86_64.tar.gz
   
-  sudo mv $HOME/namada/namada /usr/local/bin/
-  sudo mv $HOME/namada/namada[c,n,w] /usr/local/bin/
+  sudo mv $HOME/namada-v0.19.0-Linux-x86_64/namada /usr/local/bin/
+  sudo mv $HOME/namada-v0.19.0-Linux-x86_64/namada[c,n,w] /usr/local/bin/
 
-  rm -rf $HOME/namada
-  rm -rf $HOME/namada.tar.gz
+  rm -rf $HOME/namada-v0.19.0-Linux-x86_64
+  rm -rf $HOME/namada-v0.19.0-Linux-x86_64.tar.gz
 
   sudo chmod +x /usr/local/bin/{cometbft,namada,namadac,namadan,namadaw}
 
